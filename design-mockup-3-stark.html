@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1280" />
+  <title>STILL — Design Mockup 3: Stark Minimalist / Paper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+
+    /* ─────────────────────────────────────────────
+       RESET & BASE
+    ───────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --white:       #FAFAF8;
+      --paper:       #F5F3EE;
+      --paper-warm:  #EDE9E0;
+      --ink-pale:    #C8C2B4;
+      --ink-mid:     #8A857A;
+      --ink-dark:    #3A3630;
+      --ink-deep:    #1A1814;
+      --danger:      #C0392B;
+      --danger-pale: #F5DDD9;
+      --window-bg:   #FFFFFF;
+      --chrome-bg:   #F0EEE9;
+      --chrome-border: #D8D4CC;
+
+      --font-serif:  'EB Garamond', Georgia, serif;
+      --font-sans:   'Inter', system-ui, sans-serif;
+      --font-mono:   'Space Mono', monospace;
+    }
+
+    body {
+      background: #E8E4DC;
+      font-family: var(--font-sans);
+      color: var(--ink-dark);
+      min-width: 1280px;
+    }
+
+    /* ─────────────────────────────────────────────
+       PAGE WRAPPER
+    ───────────────────────────────────────────── */
+    .presentation-page {
+      width: 1280px;
+      margin: 0 auto;
+      background: #E8E4DC;
+      padding: 72px 0 120px;
+    }
+
+    /* ─────────────────────────────────────────────
+       DECK HEADER
+    ───────────────────────────────────────────── */
+    .deck-header {
+      text-align: center;
+      margin-bottom: 80px;
+      padding: 0 80px;
+    }
+
+    .deck-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      margin-bottom: 16px;
+    }
+
+    .deck-title {
+      font-family: var(--font-serif);
+      font-size: 48px;
+      font-weight: 400;
+      color: var(--ink-deep);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .deck-subtitle {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .deck-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--ink-pale);
+      margin: 32px auto 0;
+    }
+
+    /* ─────────────────────────────────────────────
+       STATE SECTION WRAPPER
+    ───────────────────────────────────────────── */
+    .state-section {
+      padding: 0 80px;
+      margin-bottom: 80px;
+    }
+
+    .state-label {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .state-label-number {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--ink-pale);
+    }
+
+    .state-label-text {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+    }
+
+    .state-label::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--ink-pale);
+    }
+
+    /* ─────────────────────────────────────────────
+       WINDOW CHROME SHELL
+    ───────────────────────────────────────────── */
+    .app-window {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,0.08),
+        0 4px 8px rgba(0,0,0,0.06),
+        0 16px 40px rgba(0,0,0,0.10),
+        0 40px 80px rgba(0,0,0,0.06);
+    }
+
+    .window-chrome {
+      background: var(--chrome-bg);
+      border-bottom: 1px solid var(--chrome-border);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      user-select: none;
+    }
+
+    .traffic-lights {
+      display: flex;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .traffic-light {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .tl-close  { background: #EC6A5E; border: 0.5px solid #D05548; }
+    .tl-min    { background: #F4BF4F; border: 0.5px solid #D6A33E; }
+    .tl-expand { background: #61C554; border: 0.5px solid #4BAA40; }
+
+    .window-title {
+      flex: 1;
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--ink-mid);
+      letter-spacing: 0.03em;
+    }
+
+    .window-chrome-spacer {
+      width: 52px; /* balance the traffic lights */
+    }
+
+    /* ─────────────────────────────────────────────
+       STATE 1 — START SCREEN
+    ───────────────────────────────────────────── */
+    .start-screen-body {
+      background: var(--white);
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 40px;
+      position: relative;
+    }
+
+    .start-screen-body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 40%, rgba(237,233,224,0.6) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .brand-mark {
+      margin-bottom: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand-icon {
+      width: 48px;
+      height: 60px;
+      margin-bottom: 28px;
+      opacity: 0.85;
+    }
+
+    .brand-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .app-name {
+      font-family: var(--font-serif);
+      font-size: 72px;
+      font-weight: 400;
+      letter-spacing: 0.32em;
+      color: var(--ink-deep);
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .app-tagline {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      margin-top: 14px;
+    }
+
+    .tagline-rule {
+      width: 24px;
+      height: 1px;
+      background: var(--ink-pale);
+      margin: 20px auto;
+    }
+
+    .tagline-sub {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-style: italic;
+      color: var(--ink-mid);
+      letter-spacing: 0.02em;
+    }
+
+    .begin-button {
+      position: relative;
+      z-index: 1;
+      margin-top: 48px;
+      background: var(--ink-deep);
+      color: var(--white);
+      border: none;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 14px 40px;
+      cursor: pointer;
+      border-radius: 1px;
+      transition: background 0.2s;
+    }
+
+    .begin-button:hover {
+      background: var(--ink-mid);
+    }
+
+    .start-footnote {
+      position: relative;
+      z-index: 1;
+      margin-top: 20px;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 300;
+      color: var(--ink-pale);
+      letter-spacing: 0.12em;
+    }
+
+    /* ─────────────────────────────────────────────
+       STATE 2 — WRITING SCREEN
+    ───────────────────────────────────────────── */
+    .writing-screen-body {
+      background: var(--window-bg);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top bar inside editor */
+    .editor-topbar {
+      background: var(--white);
+      border-bottom: 1px solid #EEEBE4;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .editor-topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .session-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-pale);
+    }
+
+    .word-count {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      color: var(--ink-mid);
+    }
+
+    .editor-topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* ── TIMER COMPONENT ── */
+    .timer-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .timer-digits {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--danger);
+      letter-spacing: 0.04em;
+      animation: timer-pulse 0.6s ease-in-out infinite alternate;
+    }
+
+    @keyframes timer-pulse {
+      0%   { opacity: 1;    transform: scale(1); }
+      100% { opacity: 0.72; transform: scale(0.97); }
+    }
+
+    .timer-bar-track {
+      width: 80px;
+      height: 3px;
+      background: var(--danger-pale);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .timer-bar-fill {
+      height: 100%;
+      width: 50%; /* represents 2.5s out of 5s */
+      background: var(--danger);
+      border-radius: 2px;
+      animation: bar-drain 2.5s linear forwards;
+      transform-origin: left center;
+    }
+
+    @keyframes bar-drain {
+      0%   { width: 50%; }
+      100% { width: 0%; }
+    }
+
+    /* ── EDITOR CANVAS ── */
+    .editor-canvas {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 64px 80px 80px;
+      background: var(--white);
+      position: relative;
+      min-height: 480px;
+      /* Very subtle danger tint — the room breathing */
+      animation: danger-tint 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes danger-tint {
+      0%   { background: #FFFFFF; }
+      100% { background: #FFF9F8; }
+    }
+
+    .editor-paper {
+      width: 100%;
+      max-width: 640px;
+      position: relative;
+    }
+
+    .editor-text {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      line-height: 1.82;
+      color: var(--ink-deep);
+      letter-spacing: 0.012em;
+    }
+
+    .editor-text p {
+      margin-bottom: 1.6em;
+    }
+
+    .editor-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Blinking cursor at end */
+    .text-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.1em;
+      background: var(--ink-dark);
+      vertical-align: text-bottom;
+      margin-left: 1px;
+      animation: cursor-blink 1s step-end infinite;
+    }
+
+    @keyframes cursor-blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    /* Page number watermark */
+    .page-footer {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-serif);
+      font-size: 11px;
+      color: var(--ink-pale);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─────────────────────────────────────────────
+       STATE 3 — DELETION EVENT
+    ───────────────────────────────────────────── */
+    .deletion-screen-body {
+      min-height: 420px;
+      position: relative;
+      overflow: hidden;
+      background: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* The white-out gradient that consumes everything */
+    .deletion-whiteover {
+      position: absolute;
+      inset: 0;
+      background: #FFFFFF;
+      animation: whiteover-in 0.4s ease-out forwards;
+    }
+
+    @keyframes whiteover-in {
+      0%   { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* Ghost text — barely visible, being erased */
+    .deletion-ghost-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 560px;
+      width: 100%;
+      font-family: var(--font-serif);
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--ink-dark);
+      text-align: center;
+      animation: ghost-fade 1.2s ease-out forwards;
+    }
+
+    @keyframes ghost-fade {
+      0%   { opacity: 0.25; filter: blur(0px); }
+      100% { opacity: 0;    filter: blur(6px); }
+    }
+
+    /* The message that remains */
+    .deletion-aftermath {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      animation: aftermath-in 0.8s ease-out 0.6s both;
+      opacity: 0;
+    }
+
+    @keyframes aftermath-in {
+      0%   { opacity: 0; transform: translateY(4px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .deletion-message {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--ink-pale);
+      letter-spacing: 0.04em;
+      font-style: italic;
+    }
+
+    .deletion-sub {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--ink-pale);
+    }
+
+    .deletion-restart {
+      margin-top: 24px;
+      background: transparent;
+      border: 1px solid var(--ink-pale);
+      color: var(--ink-mid);
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 10px 28px;
+      cursor: pointer;
+      border-radius: 1px;
+    }
+
+    /* ─────────────────────────────────────────────
+       DESIGN SPEC PANEL
+    ───────────────────────────────────────────── */
+    .spec-section {
+      padding: 0 80px;
+      margin-top: 80px;
+    }
+
+    .spec-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 48px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--ink-pale);
+    }
+
+    .spec-header-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+    }
+
+    .spec-block-title {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-pale);
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #E0DDD5;
+    }
+
+    /* Name proposal */
+    .spec-name-proposal {
+      background: var(--paper);
+      border-radius: 4px;
+      padding: 28px;
+    }
+
+    .spec-name-hero {
+      font-family: var(--font-serif);
+      font-size: 52px;
+      font-weight: 400;
+      color: var(--ink-deep);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+
+    .spec-name-note {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .spec-name-rationale {
+      font-family: var(--font-serif);
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-mid);
+      line-height: 1.7;
+    }
+
+    /* Color palette */
+    .palette-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .swatch-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .swatch {
+      width: 36px;
+      height: 36px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .swatch-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .swatch-name {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ink-dark);
+    }
+
+    .swatch-hex {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--ink-mid);
+      letter-spacing: 0.05em;
+    }
+
+    /* Typography spec */
+    .type-spec-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .type-spec-item {
+      padding: 16px;
+      background: var(--paper);
+      border-radius: 4px;
+    }
+
+    .type-spec-label {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-pale);
+      margin-bottom: 6px;
+    }
+
+    .type-spec-sample {
+      color: var(--ink-dark);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .type-spec-sample.sample-heading {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+    }
+
+    .type-spec-sample.sample-body {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .type-spec-sample.sample-timer {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--danger);
+    }
+
+    .type-spec-sample.sample-ui {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .type-spec-meta {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--ink-pale);
+    }
+
+    /* Behavior notes */
+    .behavior-notes {
+      grid-column: 1 / -1;
+      margin-top: 16px;
+    }
+
+    .behavior-note-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .behavior-card {
+      background: var(--white);
+      border: 1px solid #E8E4DC;
+      border-radius: 6px;
+      padding: 20px 22px;
+    }
+
+    .behavior-card-title {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      margin-bottom: 10px;
+    }
+
+    .behavior-card-body {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--ink-dark);
+      line-height: 1.7;
+    }
+
+    .behavior-card-body strong {
+      font-weight: 500;
+    }
+
+    /* ─────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────── */
+    .deck-footer {
+      text-align: center;
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid #D8D4CC;
+      margin-left: 80px;
+      margin-right: 80px;
+    }
+
+    .deck-footer-text {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      color: var(--ink-pale);
+      text-transform: uppercase;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="presentation-page">
+
+  <!-- ──────────────── DECK HEADER ──────────────── -->
+  <div class="deck-header">
+    <div class="deck-label">Design Direction 03 of 03</div>
+    <div class="deck-title">Stark Minimalist / Paper</div>
+    <div class="deck-subtitle">STILL — Pressure-Driven Writing Application</div>
+    <div class="deck-divider"></div>
+  </div>
+
+
+  <!-- ──────────────────────────────────────────────
+       STATE 1 — START SCREEN
+  ─────────────────────────────────────────────── -->
+  <div class="state-section">
+    <div class="state-label">
+      <span class="state-label-number">01</span>
+      <span class="state-label-text">Start Screen</span>
+    </div>
+
+    <div class="app-window">
+      <div class="window-chrome">
+        <div class="traffic-lights">
+          <div class="traffic-light tl-close"></div>
+          <div class="traffic-light tl-min"></div>
+          <div class="traffic-light tl-expand"></div>
+        </div>
+        <div class="window-title">Still</div>
+        <div class="window-chrome-spacer"></div>
+      </div>
+
+      <div class="start-screen-body">
+
+        <div class="brand-mark">
+          <!-- Minimal page/document icon -->
+          <div class="brand-icon">
+            <svg viewBox="0 0 48 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="46" height="58" rx="2" fill="none" stroke="#C8C2B4" stroke-width="1"/>
+              <line x1="10" y1="20" x2="38" y2="20" stroke="#C8C2B4" stroke-width="1"/>
+              <line x1="10" y1="28" x2="38" y2="28" stroke="#C8C2B4" stroke-width="1"/>
+              <line x1="10" y1="36" x2="28" y2="36" stroke="#C8C2B4" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="app-name">Still</div>
+          <div class="app-tagline">A writing practice in presence</div>
+          <div class="tagline-rule"></div>
+          <div class="tagline-sub">Stop writing. Lose everything.</div>
+        </div>
+
+        <button class="begin-button">Begin Writing</button>
+        <div class="start-footnote">Your words exist only while you write them.</div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ──────────────────────────────────────────────
+       STATE 2 — WRITING SCREEN (URGENCY ACTIVE)
+  ─────────────────────────────────────────────── -->
+  <div class="state-section">
+    <div class="state-label">
+      <span class="state-label-number">02</span>
+      <span class="state-label-text">Writing Screen — Urgency Active (2.5s remaining)</span>
+    </div>
+
+    <div class="app-window">
+      <div class="window-chrome">
+        <div class="traffic-lights">
+          <div class="traffic-light tl-close"></div>
+          <div class="traffic-light tl-min"></div>
+          <div class="traffic-light tl-expand"></div>
+        </div>
+        <div class="window-title">Still — Session in Progress</div>
+        <div class="window-chrome-spacer"></div>
+      </div>
+
+      <div class="writing-screen-body">
+
+        <div class="editor-topbar">
+          <div class="editor-topbar-left">
+            <span class="session-label">Session 01</span>
+            <span class="word-count">312 words</span>
+          </div>
+          <div class="editor-topbar-right">
+            <div class="timer-wrapper">
+              <div class="timer-bar-track">
+                <div class="timer-bar-fill"></div>
+              </div>
+              <div class="timer-digits">2.5</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="editor-canvas">
+          <div class="editor-paper">
+            <div class="editor-text">
+              <p>There is a particular quality of light in the hour before the city wakes — a held-breath stillness that makes every surface seem provisional, as though the world itself has not yet committed to being. I have spent many mornings watching from this window, unable to say whether what I feel is longing or its opposite. The street below offers nothing, and somehow that is enough.</p>
+
+              <p>My mother kept a journal for forty years. When she died, we found it in the bottom drawer of her writing desk, beneath a folded map of a town none of us had ever visited. She had written in it every day without exception, even on the days when nothing happened — perhaps especially on those days. Her entries from the ordinary Tuesdays and grey Wednesdays are the ones I return to. There is a sentence she wrote on a February afternoon in 1987 that I have copied into my own notebooks three times now, not because it is wise, but because it is<span class="text-cursor"></span></p>
+            </div>
+          </div>
+          <div class="page-footer">1</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ──────────────────────────────────────────────
+       STATE 3 — DELETION EVENT
+  ─────────────────────────────────────────────── -->
+  <div class="state-section">
+    <div class="state-label">
+      <span class="state-label-number">03</span>
+      <span class="state-label-text">Deletion Event</span>
+    </div>
+
+    <div class="app-window">
+      <div class="window-chrome">
+        <div class="traffic-lights">
+          <div class="traffic-light tl-close"></div>
+          <div class="traffic-light tl-min"></div>
+          <div class="traffic-light tl-expand"></div>
+        </div>
+        <div class="window-title">Still</div>
+        <div class="window-chrome-spacer"></div>
+      </div>
+
+      <div class="deletion-screen-body">
+        <!-- Ghost text being consumed -->
+        <div class="deletion-ghost-text">
+          There is a particular quality of light in the hour before the city wakes — a held-breath stillness that makes every surface seem provisional
+        </div>
+
+        <!-- White-out layer -->
+        <div class="deletion-whiteover"></div>
+
+        <!-- Aftermath message -->
+        <div class="deletion-aftermath">
+          <div class="deletion-message">The page is clean.</div>
+          <div class="deletion-sub">Session ended &nbsp;&middot;&nbsp; 0 words remain</div>
+          <button class="deletion-restart">Begin Again</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ──────────────────────────────────────────────
+       DESIGN SPEC PANEL
+  ─────────────────────────────────────────────── -->
+  <div class="spec-section">
+    <div class="spec-header">
+      <div class="spec-header-label">Design Specification</div>
+    </div>
+
+    <div class="spec-grid">
+
+      <!-- NAME PROPOSAL -->
+      <div>
+        <div class="spec-block-title">Proposed Name</div>
+        <div class="spec-name-proposal">
+          <div class="spec-name-hero">Still</div>
+          <div class="spec-name-note">
+            From "to be still" — quiet, unmoving.<br>
+            Also "still water", "still life", "still here."
+          </div>
+          <div class="spec-name-rationale">
+            The name holds two meanings in tension: the calm the app offers, and the condition required to survive it. You must keep moving to stay <em>still</em> in existence. The moment you become still — you vanish.
+          </div>
+        </div>
+      </div>
+
+      <!-- COLOR PALETTE -->
+      <div>
+        <div class="spec-block-title">Color Palette</div>
+        <div class="palette-row">
+          <div class="swatch-item">
+            <div class="swatch" style="background:#FAFAF8;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">White</div>
+              <div class="swatch-hex">#FAFAF8 — App background, editor surface</div>
+            </div>
+          </div>
+          <div class="swatch-item">
+            <div class="swatch" style="background:#F5F3EE;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Paper</div>
+              <div class="swatch-hex">#F5F3EE — Panels, chrome, hover states</div>
+            </div>
+          </div>
+          <div class="swatch-item">
+            <div class="swatch" style="background:#C8C2B4;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Ink Pale</div>
+              <div class="swatch-hex">#C8C2B4 — Dividers, icons, ghost UI</div>
+            </div>
+          </div>
+          <div class="swatch-item">
+            <div class="swatch" style="background:#8A857A;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Ink Mid</div>
+              <div class="swatch-hex">#8A857A — Secondary text, metadata</div>
+            </div>
+          </div>
+          <div class="swatch-item">
+            <div class="swatch" style="background:#1A1814;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Ink Deep</div>
+              <div class="swatch-hex">#1A1814 — Body copy, headings, CTA</div>
+            </div>
+          </div>
+          <div class="swatch-item">
+            <div class="swatch" style="background:#C0392B; border-color: rgba(0,0,0,0.12);"></div>
+            <div class="swatch-info">
+              <div class="swatch-name" style="color:#C0392B;">Danger</div>
+              <div class="swatch-hex">#C0392B — Timer only. One accent. Total.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TYPOGRAPHY -->
+      <div>
+        <div class="spec-block-title">Typography</div>
+        <div class="type-spec-list">
+
+          <div class="type-spec-item">
+            <div class="type-spec-label">App Name / Display</div>
+            <div class="type-spec-sample sample-heading">Still</div>
+            <div class="type-spec-meta">EB Garamond 400 · 72px · tracking +0.32em · uppercase</div>
+          </div>
+
+          <div class="type-spec-item">
+            <div class="type-spec-label">Body / Editor Text</div>
+            <div class="type-spec-sample sample-body">Words written in the margins of a life.</div>
+            <div class="type-spec-meta">EB Garamond 400 · 19px · lh 1.82 · natural tracking</div>
+          </div>
+
+          <div class="type-spec-item">
+            <div class="type-spec-label">Timer Display</div>
+            <div class="type-spec-sample sample-timer">2.5</div>
+            <div class="type-spec-meta">Space Mono 700 · 14px · color: Danger · pulsing</div>
+          </div>
+
+          <div class="type-spec-item">
+            <div class="type-spec-label">UI Labels / Metadata</div>
+            <div class="type-spec-sample sample-ui">Begin Writing</div>
+            <div class="type-spec-meta">Inter 300–500 · 9–12px · tracking +0.18em · uppercase</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- BEHAVIOR NOTES -->
+      <div class="behavior-notes">
+        <div class="spec-block-title">UI Component Behavior</div>
+        <div class="behavior-note-grid">
+
+          <div class="behavior-card">
+            <div class="behavior-card-title">Timer — Idle Warning (5s → 3s)</div>
+            <div class="behavior-card-body">
+              Timer bar is neutral warm gray. Digits are hidden. The absence of urgency is its own quiet. Nothing alerts the writer until the threat is real.
+            </div>
+          </div>
+
+          <div class="behavior-card">
+            <div class="behavior-card-title">Timer — Danger Zone (3s → 0s)</div>
+            <div class="behavior-card-body">
+              Bar transitions to <strong style="color:#C0392B;">#C0392B</strong>. Digits appear and pulse with a slow 600ms breathe-in / breathe-out. The background of the editor canvas begins a barely-perceptible warm tint cycle — the room itself holds its breath.
+            </div>
+          </div>
+
+          <div class="behavior-card">
+            <div class="behavior-card-title">Deletion — Fade to White</div>
+            <div class="behavior-card-body">
+              An overexposed white fills the canvas in 400ms. Text ghosts beneath, blurring and dissolving simultaneously. After 800ms, the aftermath message fades in from silence: <em>"The page is clean."</em>
+            </div>
+          </div>
+
+          <div class="behavior-card">
+            <div class="behavior-card-title">Cursor</div>
+            <div class="behavior-card-body">
+              Standard blink (1s step-end). In danger state, blink accelerates to 0.4s, becoming a flicker. Mimics a candle about to go out. Subtle. Devastating.
+            </div>
+          </div>
+
+          <div class="behavior-card">
+            <div class="behavior-card-title">Typing Recovery</div>
+            <div class="behavior-card-body">
+              The moment a key is pressed, all danger states reset in 80ms: bar refills with an elastic ease, the red fades to warm gray, the tint lifts. The relief is immediate and visceral — the reward for not stopping.
+            </div>
+          </div>
+
+          <div class="behavior-card">
+            <div class="behavior-card-title">Start Screen</div>
+            <div class="behavior-card-body">
+              Completely still. No motion whatsoever. The radial gradient at rest. The single button waits. The calm before is total — and therefore the contrast, once the timer begins, is total.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ──────────────── FOOTER ──────────────── -->
+  <div class="deck-footer">
+    <div class="deck-footer-text">
+      Still — Design Direction 03 &nbsp;&middot;&nbsp; Stark Minimalist / Paper &nbsp;&middot;&nbsp; OPST Creative &nbsp;&middot;&nbsp; 2026
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

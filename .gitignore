@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+*.spec
+venv/
+.venv/
+env/
+
+# PyInstaller
+/dist
+/build
+
+# macOS
+.DS_Store
+*.dmg
+
+# Config (user-specific)
+.pyre/
+
+# IDE
+.vscode/
+.idea/
