@@ -31,9 +31,7 @@ class AutoSaveManager(QObject):
     def set_content(self, content: str) -> None:
         self._pending_content = content
 
-    def save(self, content: str) -> None:
-        if self._finalized:
-            return
+    def _write(self, content: str) -> None:
         try:
             self._draft_path.parent.mkdir(parents=True, exist_ok=True)
             with open(self._draft_path, "w", encoding="utf-8") as fh:
@@ -41,12 +39,17 @@ class AutoSaveManager(QObject):
         except Exception:
             pass
 
+    def save(self, content: str) -> None:
+        if self._finalized:
+            return
+        self._write(content)
+
     def finalize_clean(self, content: str) -> None:
         if self._finalized:
             return
         self._finalized = True
         self._auto_save_timer.stop()
-        self.save(content)
+        self._write(content)
         try:
             timestamp = self._session_start.strftime("%Y-%m-%d_%H-%M-%S")
             session_path = self._draft_path.parent / f"session_{timestamp}.txt"
@@ -60,7 +63,7 @@ class AutoSaveManager(QObject):
             return str(self._draft_path)
         self._finalized = True
         self._auto_save_timer.stop()
-        self.save(content)
+        self._write(content)
         return str(self._draft_path)
 
     def get_draft_path(self) -> str:

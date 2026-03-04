@@ -3,7 +3,7 @@ from __future__ import annotations
 import time
 from datetime import datetime
 
-from PyQt6.QtCore import Qt, QTimer, pyqtSignal
+from PyQt6.QtCore import QEvent, Qt, QTimer, pyqtSignal
 from PyQt6.QtGui import QFont, QKeyEvent, QTextCursor
 from PyQt6.QtWidgets import (
     QHBoxLayout,
@@ -129,12 +129,9 @@ class EditorScreen(QWidget):
         self._editor.installEventFilter(self)
 
     def eventFilter(self, watched, event) -> bool:  # type: ignore[override]
-        if watched is self._editor and isinstance(event, QKeyEvent):
-            return self._handle_key_event(event)
+        if watched is self._editor and event.type() == QEvent.Type.KeyPress:
+            return self._handle_key_event(event)  # type: ignore[arg-type]
         return super().eventFilter(watched, event)
-
-    def keyPressEvent(self, event: QKeyEvent) -> None:
-        self._handle_key_event(event)
 
     def _handle_key_event(self, event: QKeyEvent) -> bool:
         key = Qt.Key(event.key())
